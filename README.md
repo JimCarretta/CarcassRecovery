@@ -1,7 +1,7 @@
-## R-Package *SeriousInjury* v1.1.2
+## R-Package *CarcassRecovery* v1.0
 #
-### Estimate Whale Injury Severity probabilities with classification trees.
+### Estimate Fraction of Cetacean Carcasses Documented.
 #
-### See SeriousInjuryTutorial() for a guide to the package.
+### See CarcassRecovery() for a guide to the package.
 #
-### Package includes data frame 'WhaleData'.
+### Package includes data frame '[insert filenames]'
