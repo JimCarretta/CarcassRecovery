@@ -14,23 +14,27 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## What fraction of cetacean carcasses are documented?
 
-Estimating the proportion of human-caused mortality and serious injury to marine mammals
-that is documented requires three general data sets:
+Estimating the proportion of human-caused mortality and serious injury to marine mammals that is documented requires several data types:
 
-1. The number of stranded and/or floating carcasses detected.
-2. Estimated population size for the species of interest.
-3. Annual survival estimates, ideally including anthropogenic impacts.
+1.    Abundance
+2.    Annual Survival Rate (ASR) or 1 - Natural Mortality Rate
+3.    Number of Recovered Carcasses / Strandings
+4.    Fraction of year spent in study area (e.g. blue whale occurrence in U.S. West Coast waters = 0.583 or 7/12 Yr; Hazen et al. 2016)
+5.    Estimated annual anthropogenic removals
 
-It is then straightforward to incorporate these data into models used to estimate total annual deaths expected:
+It is then straightforward to incorporate these data into models used to estimate total annual deaths expected in a given area.
+Using a U.S. West Coast blue whale example:
 
 ```{r}
-PopSize <- 10000
+PopSize <- 2000
 AnnualSurvival <- 0.98
+FrResidencyTime <- 0.583
+AnthropogenicRemovals <- 2
 
-AnnualDeaths <- PopSize * (1 - AnnualSurvival)
+AnnualDeaths <- PopSize * (1 - AnnualSurvival) * FrResidencyTime + AnthropogenicRemovals
 AnnualDeaths
 
-ObservedDeaths <- 8
+ObservedDeaths <- 4
 
 FractionDetected <- ObservedDeaths/AnnualDeaths
 FractionDetected
@@ -45,7 +49,11 @@ FractionDetected
 
 [Harting, A.L., Michelle M. Barbieri, Jason D. Baker, Tracy A. Mercer, Thea C. Johanos, Stacie J. Robinson, Charles L. Littnan, Katie M. Colegrove, and Dave S. Rotstein. (2020). Population‐level impacts of natural and anthropogenic causes‐of‐death for Hawaiian monk seals in the main Hawaiian Islands, Marine Mammal Science 37(1):235-250](https://onlinelibrary.wiley.com/doi/full/10.1111/mms.12742).
 
+[Hazen, E.L., D.M. Palacios, K.A. Forney, E.A. Howell, E. Becker, A.L. Hoover, L. Irvine, M. DeAngelis, S.J. Bograd, B.R. Mate, H. Bailey. 2016. WhaleWatch: a dynamic management tool for predicting blue whale density in the California Current. Journal of Applied Ecology](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2664.12820)
+
 [Pace III, R.M., Williams, R., Kraus, S.D., Knowlton, A.R. and Pettis, H.M., 2021. Cryptic mortality of North Atlantic right whales. Conservation Science and Practice, 3(2), p.e346.](https://conbio.onlinelibrary.wiley.com/doi/full/10.1111/csp2.346)
+
+[Read, A.J., Drinker, P. and Northridge, S., 2006. Bycatch of marine mammals in US and global fisheries. Conservation biology, 20(1), pp.163-169.](https://conbio.onlinelibrary.wiley.com/doi/10.1111/j.1523-1739.2006.00338.x)
 
 [Williams, R., Gero, S., Bejder, L., Calambokidis, J., Kraus, S.D., Lusseau, D., Read, A.J. and Robbins, J., 2011. Underestimating the damage: interpreting cetacean carcass recoveries in the context of the Deepwater Horizon/BP incident. Conservation Letters, 4(3), pp.228-233.](https://doi.org/10.1111/j.1755-263X.2011.00168.x)
 
