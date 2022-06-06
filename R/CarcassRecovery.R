@@ -3,7 +3,7 @@
 #' @description
 #' Estimate the fraction of cetacean carcasses documented.
 #'
-#' @usage CarcassRecovery(df)
+#' @usage CarcassRecovery(Abund, CV.Abund, carcassDetected, ASR, removals, propResidency)
 #'
 #' @param df an object of class 'data.frame'
 #'

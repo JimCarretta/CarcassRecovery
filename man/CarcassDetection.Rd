@@ -4,7 +4,7 @@
 \alias{CarcassDetection}
 \title{CarcassRecovery}
 \usage{
-CarcassRecovery(df)
+CarcassRecovery(Abund, CV.Abund, carcassDetected, ASR, removals, propResidency)
 }
 \arguments{
 \item{df}{an object of class 'data.frame'}
